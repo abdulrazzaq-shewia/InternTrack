@@ -2,11 +2,6 @@
 
 A local web application for managing internship applications, interviews, and notes.
 
-**Student:** Abdulrazzaq Shewia  
-**Course:** CIS 375, Software Engineering I  
-**Professor:** Dr. Raef Aidibi  
-**Final deadline:** November 1, 2026
-
 ## Start on Windows (recommended)
 
 1. Install **Python 3.12 or later** from https://www.python.org/downloads/. Enable the Python launcher during installation.
