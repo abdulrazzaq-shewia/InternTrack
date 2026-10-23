@@ -1,0 +1,2 @@
+{% extends 'base.html' %}{% block title %}{{ code }} · InternTrack{% endblock %}
+{% block content %}<section class="panel confirm-panel"><span class="eyebrow">ERROR {{ code }}</span><h1>Let's get you back on track.</h1><p>{{ message }}</p><a class="button primary" href="{{ url_for('main.dashboard') if current_user.is_authenticated else url_for('main.login') }}">{{ 'Back to overview' if current_user.is_authenticated else 'Back to sign in' }}</a></section>{% endblock %}

@@ -1,0 +1,66 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux x86_64",
+  "records": 1000,
+  "method": "Flask test client, sequential local server-side requests; excludes browser rendering and network time",
+  "results": {
+    "dashboard": {
+      "trials": 20,
+      "median_ms": 2.893,
+      "p95_ms": 3.809,
+      "max_ms": 4.681,
+      "under_2s": 20,
+      "samples_ms": [
+        4.681,
+        3.099,
+        3.809,
+        2.813,
+        2.897,
+        2.873,
+        2.96,
+        2.72,
+        2.845,
+        3.249,
+        2.676,
+        2.723,
+        2.89,
+        3.751,
+        2.868,
+        2.904,
+        2.814,
+        2.845,
+        2.975,
+        3.022
+      ]
+    },
+    "search": {
+      "trials": 20,
+      "median_ms": 3.714,
+      "p95_ms": 4.467,
+      "max_ms": 6.036,
+      "under_2s": 20,
+      "samples_ms": [
+        6.036,
+        4.467,
+        3.844,
+        3.587,
+        3.545,
+        3.984,
+        3.712,
+        3.566,
+        3.582,
+        3.632,
+        4.002,
+        3.449,
+        3.716,
+        3.674,
+        3.414,
+        3.998,
+        3.942,
+        3.891,
+        3.923,
+        3.606
+      ]
+    }
+  }
+}

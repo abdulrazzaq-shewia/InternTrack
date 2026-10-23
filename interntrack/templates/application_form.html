@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% from 'macros.html' import field %}
+{% block title %}{{ 'Edit' if application else 'Add' }} application · InternTrack{% endblock %}
+{% block crumb %}{{ 'Edit' if application else 'New' }} application{% endblock %}
+{% block content %}
+<a class="back-link" href="{{ url_for('main.detail', application_id=application.id) if application else url_for('main.dashboard') }}">← Back</a>
+<div class="page-heading"><div><span class="eyebrow">KEEP YOUR NEXT STEPS TOGETHER</span><h1>{{ 'Update your application.' if application else 'A new possibility.' }}</h1><p class="muted">{{ 'Keep the details current as things move forward.' if application else 'Add the details now. Follow the progress from here.' }}</p></div></div>
+<section class="panel form-panel"><div class="panel-heading"><h2>Application details</h2><span class="small muted">Fields marked * are required</span></div><form method="post" novalidate>{{ form.hidden_tag() }}<div class="form-grid">{{ field(form.company) }}{{ field(form.position) }}{{ field(form.applied_date) }}{{ field(form.status) }}</div>{{ field(form.job_url, 'A complete link starting with https:// or http://.') }}{{ field(form.interview_datetime, 'Use your local time. Set the status to Interview to show future interviews on your dashboard.') }}{{ field(form.notes, 'Keep interview details, contacts, or next steps here. Up to 5,000 characters.') }}<div class="form-actions"><a class="button secondary" href="{{ url_for('main.detail', application_id=application.id) if application else url_for('main.dashboard') }}">Cancel</a>{{ form.submit(class_='button primary') }}</div></form></section>
+{% endblock %}

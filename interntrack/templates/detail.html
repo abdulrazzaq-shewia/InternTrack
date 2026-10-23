@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% from 'macros.html' import badge %}
+{% block title %}{{ application.company }} · InternTrack{% endblock %}{% block crumb %}Application details{% endblock %}
+{% block content %}
+<a class="back-link" href="{{ url_for('main.dashboard') }}">← All applications</a>
+<div class="page-heading"><div><span class="eyebrow">THE OPPORTUNITY</span><h1>{{ application.company }}</h1><p class="muted detail-position">{{ application.position }}</p></div><a class="button primary" href="{{ url_for('main.edit_application', application_id=application.id) }}">Edit application ↗</a></div>
+<section class="panel detail-panel"><div class="panel-heading"><h2>At a glance</h2>{{ badge(application.status) }}</div><dl class="detail-grid"><div><dt>APPLICATION DATE</dt><dd>{{ application.applied_date.strftime('%B %d, %Y') }}</dd></div><div><dt>INTERVIEW · LOCAL TIME</dt><dd>{{ application.interview_datetime.strftime('%B %d, %Y · %I:%M %p') if application.interview_datetime else 'Not scheduled' }}</dd></div><div class="wide"><dt>JOB POSTING</dt><dd>{% if application.job_url %}<a class="job-link" href="{{ application.job_url }}" target="_blank" rel="noopener noreferrer">Open job posting ↗</a>{% else %}<span class="muted">No link added</span>{% endif %}</dd></div><div class="wide"><dt>NOTES &amp; NEXT STEPS</dt><dd class="notes">{{ application.notes or 'No notes yet. Add a contact, a reminder, or your next step.' }}</dd></div></dl></section>
+<div class="danger-zone"><div><b>Remove this application</b><p class="small muted">This permanently deletes the record and its notes.</p></div><a class="button danger-outline" href="{{ url_for('main.delete_application', application_id=application.id) }}">Delete application</a></div>
+{% endblock %}

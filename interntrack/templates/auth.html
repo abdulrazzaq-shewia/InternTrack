@@ -1,0 +1,17 @@
+{% extends 'base.html' %}{% from 'macros.html' import field %}
+{% block title %}{{ 'Create account' if mode == 'register' else 'Sign in' }} · InternTrack{% endblock %}
+{% block content %}
+<div class="auth-layout">
+  <section class="auth-story"><a class="brand" href="{{ url_for('main.login') }}"><span class="brand-icon">it</span>InternTrack<span class="brand-dot">.</span></a><div class="auth-story-body"><span class="eyebrow">LESS SCATTER. MORE FOCUS.</span><h1>Your next chapter,<br>all in one place.</h1><p>From the first application to the final offer.<br>Keep track of the opportunities ahead.</p><div class="sample-card"><span class="sample-check">✓</span><div><b>A clearer path forward</b><span>Applications · Interviews · Offers</span></div><span aria-hidden="true">↗</span></div></div><p class="small">Built for students. Made for what comes next.</p></section>
+  <section class="auth-panel"><div class="auth-form"><span class="eyebrow">{{ 'START YOUR WORKSPACE' if mode == 'register' else 'WELCOME BACK' }}</span><h2>{{ 'Make your next move.' if mode == 'register' else 'Good to see you.' }}</h2><p class="muted">{{ 'Create an account to organize your internship search.' if mode == 'register' else 'Sign in to pick up where you left off.' }}</p>
+  <form method="post" novalidate>{{ form.hidden_tag() }}
+    {{ field(form.username, '3–40 characters: letters, numbers, dots, hyphens, or underscores.' if mode == 'register' else '') }}
+    {{ field(form.password, 'Use 10–128 characters.' if mode == 'register' else '') }}
+    {% if mode == 'register' %}{{ field(form.confirm) }}{% endif %}
+    {{ form.submit(class_='button primary full') }}
+  </form>
+  <p class="auth-switch">{% if mode == 'register' %}Already have an account? <a href="{{ url_for('main.login') }}">Sign in</a>{% else %}New here? <a href="{{ url_for('main.register') }}">Create an account</a>{% endif %}</p>
+  <div class="privacy-note">Your applications belong to your account.<br>Other users cannot access your records.</div>
+  </div></section>
+</div>
+{% endblock %}
